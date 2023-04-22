@@ -4,56 +4,69 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    vector<int> v;
-    v.push_back(10);
-    v.push_back(11);
-    v.push_back(12);
-    v.push_back(13);
-    //traversing
-    for(int i=0;i<v.size();++i)
-    {
-        // cout<<v[i]<<" ";
-        // or
-        // cout<<v.at(i)<<" ";//throws and exception if index is out of the range
-    }
-    // initializing while declaring
-    // vector<int> v2{1,2,3,4,5};
-    // for(auto x:v2)
-        // cout<<x<<" ";
-    // giving size in the vector
-    vector<int> v3(3,10);//10 is value
-    // for(auto x:v3)
-    //     cout<<x<<" ";
-    // auto i=v.begin();
-    // cout<<*i;
-    // auto it=v.rbegin();
-    // cout<<*it;
-    // changes the variable
-    // for(auto &x:v)
-    //     x=23;
+    vector<int> v{10,20,30,40,50};
+    cout<<"Array elements are as follows:\n";
+    for(auto i=v.begin();i!=v.end();++i)
+        cout<<*i<<" ";
+    cout<<endl;
+    // getting front
     
-    // for(auto x:v)
-    //     cout<<x<<" ";
+    cout<<v.front()<<endl;
+    cout<<v.back()<<endl;
     
-    // v.pop_back();
-    // cout<<"\n"<<
-    // cout<<"\n"<<v.back();
-    // auto it=v.insert(v.begin()+1,1,23);
-    // auto it=v.erase(v.begin()+1);
-    // cout<<"\n"<<*it<<"\n";
+    auto i=v.insert(v.begin()+2,100);
+    for(auto i=v.begin();i!=v.end();++i)
+        cout<<*i<<" ";
+    cout<<endl;
+
+//  10,20,30,40,50
+    auto it=v.insert(v.begin()+2,3,200);
+    cout<<*(it+3)<<"\n";
+    for(auto i=v.begin();i!=v.end();++i)
+        cout<<*i<<" ";
+    cout<<endl;
+
+    // delete last element
+    // returns deleted element
+    it=v.erase(v.end()-1,v.end());
+    cout<<*it<<"\n";
+    
+    for(auto i=v.begin();i!=v.end();++i)
+    cout<<*i<<" ";
+    cout<<endl;
+
+
+    
+    // delete element form 0 to n-2
+    // v.erase(v.begin(),v.end()-1);
+
+    for(auto i=v.begin();i!=v.end();++i)
+    cout<<*i<<" ";
+    cout<<endl;
+
+    // clear the vector
     // v.clear();
-    // if(v.empty())
-    //     cout<<"\nVector is empty.";
-    // cout<<"\nUpdated vector is:\n";
-    vector<int> v2{1,2,3,4,5};
-    // cout<<v2.size();
-    v2.resize(8,12);//by default it will fill with 0 if type is int 
-    // cout<<v2.size();
-    for(int i=0;i<v2.size();++i)
-    {
-        cout<<v2[i]<<" ";
-    }
-    // for(auto x:v)
-    //     cout<<x<<" ";
+    
+    // check vector is empty or not
+    if(v.empty()==true)
+        cout<<"Vector is empty.\n";
+    
+    // resize the vector
+    v.resize(5);
+
+    // resize and fill the remaining space with 33
+    v.resize(8,33);
+    
+    for(auto i=v.begin();i!=v.end();++i)
+    cout<<*i<<" ";
+    cout<<endl;
+
+    cout<<v.size()<<"\n";
+    cout<<v.capacity()<<"\n";
+
+    
+    v.resize(100);
+    cout<<v.capacity()<<"\n";
+
     return 0;
 }
